@@ -1,4 +1,4 @@
-import platform,socket,re,uuid,json,psutil,logging, os, sys, distro
+import platform,socket,psutil,logging,distro
 import gpustat
 
 plat = platform.system()
@@ -20,7 +20,7 @@ def getSystemInfo():
                 'Hostname' : socket.gethostname(),
                 'IP address' : socket.gethostbyname(socket.gethostname()),
                 'Architecture' : platform.machine(),
-                'Ram' : str(round(psutil.virtual_memory().total / (1024.0 **3)))+" GB"
+                'Ram' : str(round(psutil.virtual_memory().total / (1024.0 **3)) + 1)+" GB"
             }
         else:
             info = {
@@ -30,7 +30,7 @@ def getSystemInfo():
                 'Architecture' : platform.machine(),
                 'Hostname' : socket.gethostname(),
                 'IP address' : socket.gethostbyname(socket.gethostname()),
-                'Ram' : str(round(psutil.virtual_memory().total / (1024.0 **3)))+" GB"
+                'Ram' : str( round(psutil.virtual_memory().total + 1 / (1024.0 **3) ) + 1) + " GB"
             }
         return info
     except Exception as e:
