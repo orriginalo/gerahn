@@ -17,6 +17,7 @@ def getSystemInfo():
                 'Platform release' : platform.release(),
                 'Distro release' : distro.version(),
                 'GPU' : gpuname,
+                'CPU' : platform.processor(),
                 'Hostname' : socket.gethostname(),
                 'IP address' : socket.gethostbyname(socket.gethostname()),
                 'Architecture' : platform.machine(),
